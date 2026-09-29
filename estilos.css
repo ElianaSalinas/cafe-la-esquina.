@@ -1,0 +1,291 @@
+/* =========================================
+   VARIABLES
+   ========================================= */
+:root {
+  /* PALETA (regla 60-30-10) */
+  --neutro: #FAF6F0;      /* 60% - fondo general */
+  --secundario: #EFE4D6;  /* 30% - tarjetas y secciones */
+  --acento: #9A4A1E;      /* 10% - solo botones y precios */
+  --texto: #2B2118;
+  --gris: #6E6258;
+
+  /* ESCALA DE ESPACIADO de 8 puntos */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 16px;
+  --s4: 24px;
+  --s5: 32px;
+  --s6: 48px;
+  --s7: 64px;
+
+  /* ESCALA TIPOGRAFICA con razon 1.25 (16 x 1.25 x 1.25...) */
+  --t-body: 16px;
+  --t-h4: 20px;
+  --t-h3: 25px;
+  --t-h2: 31px;
+  --t-h1: 39px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--t-body);
+  line-height: 1.5;          /* interlineado ~1.5 como dijo el profe */
+  background: var(--neutro);
+  color: var(--texto);
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  line-height: 1.1;
+}
+
+/* ancho maximo + centrado para que no se estire en pantallas grandes */
+.contenedor {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 var(--s3);
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+.header {
+  padding: var(--s3) 0;
+  border-bottom: 1px solid var(--secundario);
+}
+
+.header-in {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: var(--t-h4);
+}
+
+.header nav a {
+  margin-left: var(--s3);
+  color: var(--gris);
+  text-decoration: none;
+}
+
+.header nav a:hover {
+  color: var(--texto);
+}
+
+/* =========================================
+   HERO
+   ========================================= */
+.hero {
+  padding: var(--s7) 0;
+}
+
+.hero h1 {
+  font-size: var(--t-h1);
+  max-width: 16ch;
+  margin-bottom: var(--s3);
+}
+
+.hero p {
+  color: var(--gris);
+  max-width: 55ch;   /* lineas de 50-75 caracteres */
+  margin-bottom: var(--s4);
+}
+
+/* =========================================
+   BOTONES (componente con estados)
+   ========================================= */
+.btn {
+  display: inline-block;
+  background: var(--acento);
+  color: #fff;               /* blanco sobre el acento da mas de 4.5:1, lo revise en WebAIM */
+  border: none;
+  border-radius: 8px;
+  padding: var(--s2) var(--s4);
+  font-family: inherit;
+  font-size: var(--t-body);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #7A3915;       /* un poco mas oscuro en hover */
+}
+
+.btn-full {
+  width: 100%;
+  margin-top: var(--s3);
+}
+
+/* =========================================
+   LAYOUT: retícula 8 + 4
+   ========================================= */
+.layout {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--s4);
+  padding-bottom: var(--s7);
+}
+
+.col-menu   { grid-column: span 8; }
+.col-pedido { grid-column: span 4; }
+
+.col-menu h2 {
+  font-size: var(--t-h2);
+  margin-bottom: var(--s3);
+}
+
+/* filtros */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  margin-bottom: var(--s4);
+}
+
+.filtro {
+  background: transparent;
+  border: 1.5px solid var(--secundario);
+  border-radius: 100px;
+  padding: var(--s1) var(--s3);
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--gris);
+  cursor: pointer;
+}
+
+.filtro.activo {
+  background: var(--texto);
+  color: var(--neutro);
+  border-color: var(--texto);
+}
+
+/* grid de tarjetas: 2 por fila */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s3);
+}
+
+/* tarjeta: titulo y texto juntos (8px), separados del precio (16px) = proximidad */
+.card {
+  background: var(--secundario);
+  border-radius: 12px;
+  padding: var(--s4);
+}
+
+/* foto de la tarjeta: todas del mismo alto para que se vean parejas (repeticion) */
+.card-img {
+  display: block;
+  width: 100%;
+  height: 160px;
+  object-fit: cover;      /* recorta la foto sin deformarla */
+  border-radius: 8px;
+  margin-bottom: var(--s3);
+}
+
+.card h3 {
+  font-size: var(--t-h4);
+  margin-bottom: var(--s2);
+}
+
+.card p {
+  color: var(--gris);
+  font-size: 14px;
+  margin-bottom: var(--s3);
+}
+
+.card-abajo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.precio {
+  color: var(--acento);
+  font-weight: 600;
+  font-size: var(--t-h4);
+}
+
+.card .btn {
+  padding: var(--s1) var(--s3);
+  font-size: 14px;
+}
+
+/* =========================================
+   CAJA DEL PEDIDO
+   ========================================= */
+.caja-pedido {
+  background: #fff;
+  border-radius: 12px;
+  padding: var(--s4);
+  position: sticky;   /* para que se quede mientras bajas */
+  top: var(--s3);
+}
+
+.caja-pedido h3 {
+  font-size: var(--t-h3);
+  margin-bottom: var(--s3);
+}
+
+.caja-pedido ul {
+  list-style: none;
+}
+
+.caja-pedido li {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--s2) 0;
+  border-bottom: 1px solid var(--secundario);
+  font-size: 14px;
+}
+
+.caja-pedido li.vacio {
+  color: var(--gris);
+  border: none;
+}
+
+.total {
+  margin-top: var(--s3);
+  font-weight: 600;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.footer {
+  padding: var(--s5) 0;
+  border-top: 1px solid var(--secundario);
+  color: var(--gris);
+  font-size: 14px;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 800px) {
+  /* en celular todo ocupa las 12 columnas */
+  .col-menu,
+  .col-pedido {
+    grid-column: span 12;
+  }
+
+  .hero h1 {
+    font-size: var(--t-h2);
+  }
+}
+
+@media (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

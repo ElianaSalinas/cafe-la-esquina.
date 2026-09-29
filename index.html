@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café La Esquina</title>
+
+  <!-- 2 fuentes nada mas: Playfair para titulos (serif = restaurante/artesanal) e Inter para el texto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <!-- HEADER: logo arriba a la izquierda (patron F/Z, es lo primero que se lee) -->
+  <header class="header">
+    <div class="contenedor header-in">
+      <span class="logo">Café La Esquina</span>
+      <nav>
+        <a href="#menu">Menú</a>
+        <a href="#pedido">Mi pedido</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO: titulo grande + texto chiquito + boton con el color de acento (jerarquia) -->
+  <section class="hero">
+    <div class="contenedor">
+      <h1>Café recién colado y dulces de la casa</h1>
+      <p>Desayunos y meriendas en La Romana, todos los días de 7am a 7pm.</p>
+      <a href="#menu" class="btn">Ver el menú</a>
+    </div>
+  </section>
+
+  <!-- MENU: retícula de 8 + 4 (tarjetas a la izquierda, pedido a la derecha) -->
+  <main class="contenedor layout" id="menu">
+
+    <section class="col-menu">
+      <h2>Nuestro menú</h2>
+
+      <!-- botones para filtrar, el JS les pone el click -->
+      <div class="filtros">
+        <button class="filtro activo" data-cat="todo">Todo</button>
+        <button class="filtro" data-cat="cafe">Cafés</button>
+        <button class="filtro" data-cat="dulce">Dulces</button>
+        <button class="filtro" data-cat="salado">Salados</button>
+      </div>
+
+      <!-- aqui el JS mete las tarjetas -->
+      <div class="grid" id="lista"></div>
+    </section>
+
+    <aside class="col-pedido" id="pedido">
+      <div class="caja-pedido">
+        <h3>Mi pedido</h3>
+        <ul id="items-pedido">
+          <li class="vacio">Todavía no has agregado nada</li>
+        </ul>
+        <p class="total">Total: <span id="total">RD$0</span></p>
+        <button class="btn btn-full" id="btn-vaciar">Vaciar pedido</button>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer class="footer">
+    <div class="contenedor">
+      <p>Café La Esquina · Proyecto de clase ISW-312</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
