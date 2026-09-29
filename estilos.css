@@ -1,15 +1,11 @@
-/* =========================================
-   VARIABLES
-   ========================================= */
+```css
 :root {
-  /* PALETA (regla 60-30-10) */
-  --neutro: #FAF6F0;      /* 60% - fondo general */
-  --secundario: #EFE4D6;  /* 30% - tarjetas y secciones */
-  --acento: #9A4A1E;      /* 10% - solo botones y precios */
+  --neutro: #FAF6F0;
+  --secundario: #EFE4D6;
+  --acento: #9A4A1E;
   --texto: #2B2118;
   --gris: #6E6258;
 
-  /* ESCALA DE ESPACIADO de 8 puntos */
   --s1: 4px;
   --s2: 8px;
   --s3: 16px;
@@ -18,7 +14,6 @@
   --s6: 48px;
   --s7: 64px;
 
-  /* ESCALA TIPOGRAFICA con razon 1.25 (16 x 1.25 x 1.25...) */
   --t-body: 16px;
   --t-h4: 20px;
   --t-h3: 25px;
@@ -33,28 +28,26 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: Arial, sans-serif;
   font-size: var(--t-body);
-  line-height: 1.5;          /* interlineado ~1.5 como dijo el profe */
+  line-height: 1.5;
   background: var(--neutro);
   color: var(--texto);
 }
 
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
+h1, h2, h3, .logo {
+  font-family: Georgia, serif;
   line-height: 1.1;
 }
 
-/* ancho maximo + centrado para que no se estire en pantallas grandes */
 .contenedor {
   max-width: 1080px;
   margin: 0 auto;
   padding: 0 var(--s3);
 }
 
-/* =========================================
-   HEADER
-   ========================================= */
+/* HEADER */
+
 .header {
   padding: var(--s3) 0;
   border-bottom: 1px solid var(--secundario);
@@ -67,7 +60,6 @@ h1, h2, h3 {
 }
 
 .logo {
-  font-family: 'Playfair Display', serif;
   font-size: var(--t-h4);
 }
 
@@ -81,9 +73,8 @@ h1, h2, h3 {
   color: var(--texto);
 }
 
-/* =========================================
-   HERO
-   ========================================= */
+/* HERO */
+
 .hero {
   padding: var(--s7) 0;
 }
@@ -96,17 +87,16 @@ h1, h2, h3 {
 
 .hero p {
   color: var(--gris);
-  max-width: 55ch;   /* lineas de 50-75 caracteres */
+  max-width: 55ch;
   margin-bottom: var(--s4);
 }
 
-/* =========================================
-   BOTONES (componente con estados)
-   ========================================= */
+/* BOTONES */
+
 .btn {
   display: inline-block;
   background: var(--acento);
-  color: #fff;               /* blanco sobre el acento da mas de 4.5:1, lo revise en WebAIM */
+  color: white;
   border: none;
   border-radius: 8px;
   padding: var(--s2) var(--s4);
@@ -118,7 +108,7 @@ h1, h2, h3 {
 }
 
 .btn:hover {
-  background: #7A3915;       /* un poco mas oscuro en hover */
+  background: #7A3915;
 }
 
 .btn-full {
@@ -126,9 +116,8 @@ h1, h2, h3 {
   margin-top: var(--s3);
 }
 
-/* =========================================
-   LAYOUT: retícula 8 + 4
-   ========================================= */
+/* LAYOUT */
+
 .layout {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -136,15 +125,21 @@ h1, h2, h3 {
   padding-bottom: var(--s7);
 }
 
-.col-menu   { grid-column: span 8; }
-.col-pedido { grid-column: span 4; }
+.col-menu {
+  grid-column: span 8;
+}
+
+.col-pedido {
+  grid-column: span 4;
+}
 
 .col-menu h2 {
   font-size: var(--t-h2);
   margin-bottom: var(--s3);
 }
 
-/* filtros */
+/* FILTROS */
+
 .filtros {
   display: flex;
   flex-wrap: wrap;
@@ -169,26 +164,25 @@ h1, h2, h3 {
   border-color: var(--texto);
 }
 
-/* grid de tarjetas: 2 por fila */
+/* TARJETAS */
+
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--s3);
 }
 
-/* tarjeta: titulo y texto juntos (8px), separados del precio (16px) = proximidad */
 .card {
   background: var(--secundario);
   border-radius: 12px;
   padding: var(--s4);
 }
 
-/* foto de la tarjeta: todas del mismo alto para que se vean parejas (repeticion) */
 .card-img {
   display: block;
   width: 100%;
   height: 160px;
-  object-fit: cover;      /* recorta la foto sin deformarla */
+  object-fit: cover;
   border-radius: 8px;
   margin-bottom: var(--s3);
 }
@@ -221,14 +215,13 @@ h1, h2, h3 {
   font-size: 14px;
 }
 
-/* =========================================
-   CAJA DEL PEDIDO
-   ========================================= */
+/* PEDIDO */
+
 .caja-pedido {
-  background: #fff;
+  background: white;
   border-radius: 12px;
   padding: var(--s4);
-  position: sticky;   /* para que se quede mientras bajas */
+  position: sticky;
   top: var(--s3);
 }
 
@@ -259,9 +252,8 @@ h1, h2, h3 {
   font-weight: 600;
 }
 
-/* =========================================
-   FOOTER
-   ========================================= */
+/* FOOTER */
+
 .footer {
   padding: var(--s5) 0;
   border-top: 1px solid var(--secundario);
@@ -269,11 +261,10 @@ h1, h2, h3 {
   font-size: 14px;
 }
 
-/* =========================================
-   RESPONSIVE
-   ========================================= */
+/* RESPONSIVE */
+
 @media (max-width: 800px) {
-  /* en celular todo ocupa las 12 columnas */
+
   .col-menu,
   .col-pedido {
     grid-column: span 12;
@@ -285,6 +276,7 @@ h1, h2, h3 {
 }
 
 @media (max-width: 500px) {
+
   .grid {
     grid-template-columns: 1fr;
   }
