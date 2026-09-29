@@ -281,3 +281,23 @@ h1, h2, h3, .logo {
     grid-template-columns: 1fr;
   }
 }
+/* botones visibles aunque fallen las variables */
+.btn {
+  background: #9A4A1E;
+  color: white;
+  padding: 8px 24px;
+  border: none;
+  border-radius: 8px;
+}
+
+.filtro {
+  border: 1.5px solid #999;
+  padding: 4px 16px;
+  margin-right: 4px;
+  border-radius: 100px;
+}
+
+.filtro.activo {
+  background: #2B2118;
+  color: #FAF6F0;
+}
